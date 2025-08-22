@@ -26,13 +26,11 @@ logger = logging.getLogger(__name__)
 class CodeRequest(BaseModel):
     code: str
     timeout: Optional[int] = 180  # 默认超时30秒
-    session_id:str = "test_id"
 
 class CodeResponse(BaseModel):
     output: str
     error: Optional[str]
     execution_time: float
-    session_id:str 
   
 manager = MCPManager()
 app = FastAPI()
