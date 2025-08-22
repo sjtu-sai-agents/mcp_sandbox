@@ -87,11 +87,6 @@ Running 10s test @ http://127.0.0.1:30008/execute
 Requests/sec:   2295.61
 Transfer/sec:    432.74KB
 ```
-## Contributors
-
-<a href="https://github.com/sjtu-sai-agents/mcp_sandbox/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=sjtu-sai-agents/mcp_sandbox" />
-</a>
 
 ---
 
