@@ -1,6 +1,6 @@
 # Code Execution Server
 
-This repository provides a basic implementation of a **code execution server**, designed primarily for **Xmaster** ([paper](https://arxiv.org/abs/2507.05241), [code](https://github.com/sjtu-sai-agents/X-Master)) and **Browse Master** ([paper]() [code](https://github.com/sjtu-sai-agents/Browse-Master)). The full implementation is used in [SciMaster](https://scimaster.bohrium.com). 
+This repository provides a basic implementation of a **code execution server**, designed primarily for **Xmaster** ([paper](https://arxiv.org/abs/2507.05241), [code](https://github.com/sjtu-sai-agents/X-Master)) and **Browse Master** ([paper](https://arxiv.org/abs/2508.09129) [code](https://github.com/sjtu-sai-agents/Browse-Master)). The full implementation is used in [SciMaster](https://scimaster.bohrium.com). 
 
 Due to the proprietary nature of the full code, this repository only includes an **open-source framework** and the **basic components** required for code execution. It also includes a simple **network search tool** implementation.
 
@@ -87,6 +87,11 @@ Running 10s test @ http://127.0.0.1:30008/execute
 Requests/sec:   2295.61
 Transfer/sec:    432.74KB
 ```
+## Contributors
+
+<a href="https://github.com/sjtu-sai-agents/mcp_sandbox/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sjtu-sai-agents/mcp_sandbox" />
+</a>
 
 ---
 

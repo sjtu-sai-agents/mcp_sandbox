@@ -1,5 +1,3 @@
 [
-    "server/Agents-Server/agents_server.py",
-    "server/BASE-TOOL-Server/base_tool_server.py",
-    "https://dpa-uuid1750659890.app-space.dplink.cc/sse?token=b42b991d062341fba15a9f7975e190b0"
+    "server/BASE-TOOL-Server/base_tool_server.py"
 ]

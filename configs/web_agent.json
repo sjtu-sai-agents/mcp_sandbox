@@ -1,5 +1,5 @@
 {
-    "serper_api_key": "e2968a7bcb3bb786ea0a3f296066ec11fe0a65de",
+    "serper_api_key": "",
     "search_region": "us",
     "search_lang": "en",
     "USE_MODEL": "gpt-4o",
