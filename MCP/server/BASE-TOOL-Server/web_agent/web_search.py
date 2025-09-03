@@ -2,7 +2,7 @@ import aiohttp
 import asyncio
 import os,sys
 current_dir = os.path.dirname(os.path.abspath(__file__))    
-sys.path.append(os.path.join(current_dir, '..', '..', '..', '..', '..', 'tool_backends', 'api_proxy'))
+sys.path.append(os.path.join(current_dir, '..', '..', '..', '..', 'api_proxy'))
 from tool_api import web_search_api
 
 async def google_search(query: str, top_k: int = 10):

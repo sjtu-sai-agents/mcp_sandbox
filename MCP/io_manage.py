@@ -22,6 +22,7 @@ class OutputCapture:
         self.stdout.close()
         self.stderr.close()
 
+# 线程安全的输出管理器
 class ThreadOutputManager:
     def get_capture(self) -> OutputCapture:
-        return OutputCapture()  
+        return OutputCapture()  # 每次返回新的 capture

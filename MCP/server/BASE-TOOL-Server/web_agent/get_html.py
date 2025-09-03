@@ -3,7 +3,7 @@ import asyncio
 import json
 import os, sys
 current_dir = os.path.dirname(os.path.abspath(__file__))    
-sys.path.append(os.path.join(current_dir, '..', '..', '..', '..', '..', 'tool_backends', 'api_proxy'))
+sys.path.append(os.path.join(current_dir, '..', '..', '..', '..', 'api_proxy'))
 from tool_api import fetch_web_api  
 
 async def fetch_web_content(url: str):

@@ -11,7 +11,7 @@ from utils.llm_caller import llm_call
 from pdf_read import read_pdf_from_url  
 
 
-with open(f"{current_dir}/../../../../../configs/paper_agent.json", "r") as f:
+with open(f"{current_dir}/../../../../configs/paper_agent.json", "r") as f:
     paper_config = json.load(f)
 
 def split_pdf_info(pdf_info: str, model: str):

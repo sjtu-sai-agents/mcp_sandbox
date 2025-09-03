@@ -7,7 +7,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 
 def load_serverlist():
-    config_path = os.path.join(current_dir, "config/server_list.json")
+    config_path = os.path.join(current_dir, "../configs/server_list.json")
     with open(config_path, 'r') as file:
         return json.load(file)
 
@@ -17,6 +17,9 @@ class MCPManager:
         self.tool_client: dict[str, MCPClient] = {}
         self.tool_list: list[dict] = []
         self.is_ready: bool = False
+
+        self.tool_to_func: dict[str, str] = {}
+        self.func_to_tool: dict[str, str] = {}
 
     
     async def ready(self):
@@ -37,11 +40,30 @@ class MCPManager:
             client = MCPClient(venv_path=sys.prefix, server=server)
             try:
                 name = await client.connect_to_server()
+                if not name == 'openapi-mcp-server':
+                    allowed_tools = "all" 
+                else:
+                    allowed_tools = ["search-papers-enhanced", 'search-scholars']
+
                 tools = await client.get_tools()
                 self.client_list.append(client)
-                self.tool_list += tools
+
+                tool_list_tmp = []
+
                 for tool in tools:
+                    if allowed_tools != "all" and (tool["name"] not in allowed_tools):
+                        continue
+                    func_name = tool['name'].replace('-', '_')
+                    self.tool_to_func[tool['name']] = func_name
+                    self.func_to_tool[func_name] = tool['name']
+                    tool['name'] = func_name
                     self.tool_client[tool["name"]] = client
+                    tool_list_tmp.append(tool)
+
+                self.tool_list += tool_list_tmp
+                # print("##########")
+                # print(self.tool_list)
+
                 ready_server.append(name)
                 print(f"Server {name} ready.")
             except Exception as e:
@@ -63,7 +85,9 @@ class MCPManager:
         if not self.tool_client.get(tool_name):
             raise KeyError(f"Tool '{tool_name}' not found in tool list.")
         try:
-            result = await self.tool_client[tool_name].call_tool(tool_name, tool_args)
+            call_tool_name = self.func_to_tool[tool_name]
+
+            result = await self.tool_client[tool_name].call_tool(call_tool_name, tool_args)
             return result
         except Exception as e:
             raise RuntimeError(e)

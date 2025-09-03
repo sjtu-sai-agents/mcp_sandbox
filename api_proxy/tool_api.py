@@ -4,10 +4,14 @@ import os,sys,json
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(os.path.dirname(current_dir)))
 with open(os.path.join(current_dir, '../configs/mcp_config.json'), 'r') as f:
+    mcp_config = json.load(f)
+
+base_url = mcp_config['tool_api_url']
+
+
+with open(os.path.join(current_dir, '../configs/web_agent.json'), 'r') as f:
     config = json.load(f)
-
-base_url = config['tool_api_url']
-
+    
 async def web_search_api(session, query: str,top_k: int = 10):
     url = f"{base_url}/search"
     data = {

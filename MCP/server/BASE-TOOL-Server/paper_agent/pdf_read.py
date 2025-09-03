@@ -4,7 +4,8 @@ import io
 import traceback
 import os, sys
 current_dir = os.path.dirname(os.path.abspath(__file__))    
-sys.path.append(os.path.join(current_dir, '..', '..', '..', '..', '..', 'tool_backends', 'api_proxy'))
+sys.path.append(os.path.join(current_dir, '..', '..', '..', '..', 'api_proxy'))
+print(sys.path)
 from tool_api import read_pdf_api  
 
 import asyncio
